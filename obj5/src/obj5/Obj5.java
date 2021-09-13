@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 public class Obj5 {
 	
 	public static int tamanho = 800;
-        public static int numeroParticulas =1000;
+        public static int numeroParticulas =12000;
 	static int tamanhoParticula = 7;
 	public static Particulas[] particulas;
 	

@@ -14,7 +14,7 @@ public class Graficos extends JPanel implements ActionListener{
 	ArrayList<Particulas> particlesList;
 	int count;
 	
-	
+	QuadTree quadTree;
 	QuadRectangle quad;
 	int tamanhoParticulas = Obj5.tamanhoParticula;
 	boolean usarQuadTree = true;
@@ -68,15 +68,24 @@ public class Graficos extends JPanel implements ActionListener{
         	}
         }
         
-    
+    	if (usarQuadTree == true)
+    	{
+	        quadTree = new QuadTree(quad, 10);
+	    	quadTree.Insert(particlesList);
+	        
+	        quadTree.paint(g);
+	        
+	        quadTree.QuadradinhoColidiu();
+    	}
     }
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		
+		if (!usarQuadTree)
+		{
 			SeraQueColidiu();
-				
+		}		
 		 for (int i = 0; i < count; i++)
 			{
 	        	particles[i].moverQuadradinhos();
